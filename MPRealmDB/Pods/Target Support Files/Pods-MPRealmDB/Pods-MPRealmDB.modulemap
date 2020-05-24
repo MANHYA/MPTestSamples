@@ -1,0 +1,6 @@
+framework module Pods_MPRealmDB {
+  umbrella header "Pods-MPRealmDB-umbrella.h"
+
+  export *
+  module * { export * }
+}

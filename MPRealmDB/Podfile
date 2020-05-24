@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+source 'https://manoomanish@bitbucket.org/manoomanish/mpadobeanalytics.git'
+source 'https://github.com/CocoaPods/Specs.git'
+target 'MPRealmDB' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'RealmSwift'
+  pod 'mpadobeanalytics'#, :git => 'https://manoomanish@bitbucket.org/manoomanish/adobeanalytics.git'#'git@github.com:manoomanish/adobeanalytics.git'#'~> 0.1.1'#, '~> 0.1.1'#, :git => 'git@github.com:manoomanish/adobeanalytics.git'#'~> 0.1.1'
+#git clone https://manoomanish@bitbucket.org/manoomanish/adobeanalytics.git
+  # Pods for MPRealmDB
+
+end

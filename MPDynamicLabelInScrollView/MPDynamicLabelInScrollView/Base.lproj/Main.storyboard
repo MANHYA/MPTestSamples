@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MPDynamicLabelInScrollView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udO-BS-TQ0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHI-ek-f2s">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="442"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLx-9g-cDK">
+                                                <rect key="frame" x="12" y="22" width="351" height="304.5"/>
+                                                <mutableString key="text">Video texts will come here To improve the well-being of working professionals by sample text incorporating yoga and meditation in their dialy lives, Video texts will come here To improve the well-being of working professionals by sample text incoeporating yoga and meditation in their daily lives.Video texts will come here To improve the well-being of working professionals by sample text incorporating yoga and meditation in their dialy lives, Video texts will come here To improve the well-being of working professionals by sample text incoeporating yoga and meditation in their daily lives.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="jLx-9g-cDK" secondAttribute="bottom" constant="115.5" id="UWS-Ve-3ZI"/>
+                                            <constraint firstItem="jLx-9g-cDK" firstAttribute="top" secondItem="yHI-ek-f2s" secondAttribute="top" constant="22" id="YV6-4T-0MD"/>
+                                            <constraint firstAttribute="trailing" secondItem="jLx-9g-cDK" secondAttribute="trailing" constant="12" id="s3Q-1z-qKt"/>
+                                            <constraint firstItem="jLx-9g-cDK" firstAttribute="leading" secondItem="yHI-ek-f2s" secondAttribute="leading" constant="12" id="tww-L4-QvS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yHI-ek-f2s" secondAttribute="trailing" id="ArK-I5-DLW"/>
+                                    <constraint firstItem="yHI-ek-f2s" firstAttribute="leading" secondItem="udO-BS-TQ0" secondAttribute="leading" id="Bbr-s0-4qd"/>
+                                    <constraint firstItem="yHI-ek-f2s" firstAttribute="height" secondItem="udO-BS-TQ0" secondAttribute="height" priority="250" constant="-367" id="HK9-kK-yNC"/>
+                                    <constraint firstItem="yHI-ek-f2s" firstAttribute="width" secondItem="udO-BS-TQ0" secondAttribute="width" id="S6H-Hi-aoP"/>
+                                    <constraint firstAttribute="bottom" secondItem="yHI-ek-f2s" secondAttribute="bottom" constant="367" id="Vqq-RX-edL"/>
+                                    <constraint firstItem="yHI-ek-f2s" firstAttribute="top" secondItem="udO-BS-TQ0" secondAttribute="top" id="tch-LT-Qes"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="udO-BS-TQ0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3L9-ts-WUv"/>
+                            <constraint firstItem="udO-BS-TQ0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ROH-i1-Ym8"/>
+                            <constraint firstItem="udO-BS-TQ0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZKQ-aw-NAO"/>
+                            <constraint firstItem="udO-BS-TQ0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zAM-vN-biz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="lbl" destination="jLx-9g-cDK" id="Udl-JI-JUV"/>
+                        <outlet property="scroll" destination="udO-BS-TQ0" id="bcq-te-T6e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>

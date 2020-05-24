@@ -1,0 +1,16 @@
+PODS:
+  - SKActivityIndicatorView (0.1.0)
+
+DEPENDENCIES:
+  - SKActivityIndicatorView (from `../MPactivityIndicator/SKActivity`)
+
+EXTERNAL SOURCES:
+  SKActivityIndicatorView:
+    :path: "../MPactivityIndicator/SKActivity"
+
+SPEC CHECKSUMS:
+  SKActivityIndicatorView: bea4039c6bce71dc425371491f3988d49915af74
+
+PODFILE CHECKSUM: 8b4cdebfb2bd4a4ffade10d9d4ee7e4f001b7b4b
+
+COCOAPODS: 1.5.3

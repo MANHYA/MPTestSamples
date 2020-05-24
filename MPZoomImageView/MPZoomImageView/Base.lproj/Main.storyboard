@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MPZoomImageView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parrot4" translatesAutoresizingMaskIntoConstraints="NO" id="aLH-cy-iz5" customClass="EEZoomableImageView" customModule="MPZoomImageView" customModuleProvider="target">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="GIh-r2-kt0"/>
+                                    <constraint firstAttribute="height" constant="128" id="gYT-75-wjZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aLH-cy-iz5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Jca-Vn-UJR"/>
+                            <constraint firstItem="aLH-cy-iz5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dJK-7f-Chs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="zoomableImageView" destination="aLH-cy-iz5" id="Ukt-db-h9e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Big Image View Controller-->
+        <scene sceneID="D3Q-WO-7QX">
+            <objects>
+                <viewController storyboardIdentifier="vc" id="0jV-bD-X3U" customClass="BigImageViewController" customModule="MPZoomImageView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V9h-Hl-20T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOC-Al-GCe">
+                                <rect key="frame" x="20" y="54" width="93" height="46"/>
+                                <color key="backgroundColor" red="0.54901960780000003" green="0.92156862750000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="5Tv-v2-tnI"/>
+                                    <constraint firstAttribute="height" constant="46" id="D7I-X4-sMf"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="moveBackToParentVC:" destination="0jV-bD-X3U" eventType="touchUpInside" id="WzC-G1-coJ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="03z-Tm-fsO" customClass="EEZoomableImageView" customModule="MPZoomImageView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199.5" width="414" height="497"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="03z-Tm-fsO" secondAttribute="height" multiplier="1:1.2" id="P6h-Hp-adb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DOC-Al-GCe" firstAttribute="leading" secondItem="YQ0-gU-PHI" secondAttribute="leading" constant="20" id="4OF-GJ-gie"/>
+                            <constraint firstItem="03z-Tm-fsO" firstAttribute="leading" secondItem="YQ0-gU-PHI" secondAttribute="leading" id="Bek-C8-afK"/>
+                            <constraint firstItem="DOC-Al-GCe" firstAttribute="top" secondItem="YQ0-gU-PHI" secondAttribute="top" constant="10" id="Rpx-RU-tEz"/>
+                            <constraint firstItem="03z-Tm-fsO" firstAttribute="centerY" secondItem="V9h-Hl-20T" secondAttribute="centerY" id="TL5-bf-cVs"/>
+                            <constraint firstItem="YQ0-gU-PHI" firstAttribute="trailing" secondItem="03z-Tm-fsO" secondAttribute="trailing" id="UnX-X1-ShU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YQ0-gU-PHI"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bigPhotoImageView" destination="03z-Tm-fsO" id="dCx-gu-2FF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFa-QR-Dj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1440.5797101449277" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="parrot4" width="442.5" height="778.5"/>
+    </resources>
+</document>
