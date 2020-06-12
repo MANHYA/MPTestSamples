@@ -59,7 +59,7 @@ class SpeechRecog {
     private var recognitionTask: SFSpeechRecognitionTask?
     
     let array = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150]
-    let timeOutTime: TimeInterval =  5
+    let timeOutTime: TimeInterval =  3
     
     var message: String = "" {
         didSet {
