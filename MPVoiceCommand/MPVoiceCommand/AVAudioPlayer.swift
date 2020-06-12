@@ -16,8 +16,8 @@ class Player {
         guard let url = Bundle.main.url(forResource: file, withExtension: "mp3") else { return }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default)
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
 
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
 

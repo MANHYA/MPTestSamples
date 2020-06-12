@@ -12,7 +12,7 @@ import Speech
 
 protocol SpeechRecogDelegate: class {
     func willStartRecording(type : Commandtype)
-    func didFinishRecording(type : Commandtype)
+    func didFinishRecording(type : Commandtype, info: String)
 }
 
 extension UIViewController {
@@ -108,9 +108,9 @@ class SpeechRecog {
         self.type = .none
         self.willStartRecording()
         // Wait for voice request to finish
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){ [weak self] in
             do {
-                try self.startRecording()
+                try self?.startRecording()
             } catch(let error) {
                 print("error is \(error.localizedDescription)")
             }
@@ -122,19 +122,15 @@ extension SpeechRecog {
     // MARK: Start recognizing voice
     func startRecording() throws {
         //Auto stop recording after 5 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeOutTime) {
-            if self.status == .recognizing {
-                self.status = .unavailable
-                self.didFinishRecording()
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeOutTime) { [weak self] in
+            if self?.status == .recognizing {
+                self?.didFinishRecording(self?.message ?? "")
+                self?.status = .unavailable
             }
         }
         
         recognitionTask?.cancel()
         recognitionTask = nil
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
         // Setup audio engine and speech recognizer
         guard let node = audioEngine.inputNode as AVAudioNode? else { return }
@@ -174,7 +170,7 @@ extension SpeechRecog {
             }
             guard result.bestTranscription.formattedString != self.message else {return}
             self.message = result.bestTranscription.formattedString
-            print("got a new result: \(self.message), final : \(result.isFinal)")
+            print("got a new result: \(self.message)")
             self.status = .recognizing
         })
     }
@@ -222,13 +218,12 @@ extension SpeechRecog {
     func checkStatus(status: SpeechStatus) {
         switch status {
         case .ready:
-            print("Ready to recognize")
+            print("*************************")
             self.prepareRecording()
         case .recognizing:
-            print("Start recognizing")
             self.checkCommand(self.message)
         case .unavailable:
-            print("Recording stopped")
+            print("*************************")
             self.cancelRecording()
         }
     }
@@ -241,24 +236,23 @@ extension SpeechRecog {
             setPace()
         case .volume:
             setVolume()
-        default:
-            didFinishRecording()
+        default:break
         }
+        didFinishRecording(self.message)
+        self.status = .unavailable
     }
     
     func setPace() {
-        self.status = .unavailable
-        self.didFinishRecording()
+       // Set pace
     }
 
     func setVolume() {
-        self.status = .unavailable
-        didFinishRecording()
+        //  Sat volume
     }
 
     // MARK: Update App
-    func didFinishRecording() {
-        self.delegate?.didFinishRecording(type: type)
+    func didFinishRecording(_ msg: String = "") {
+        self.delegate?.didFinishRecording(type: type, info: msg)
     }
     func willStartRecording() {
         self.delegate?.willStartRecording(type: type)

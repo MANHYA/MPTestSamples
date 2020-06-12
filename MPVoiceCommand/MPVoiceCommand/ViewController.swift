@@ -47,29 +47,28 @@ extension ViewController: SpeechRecogDelegate {
         Player.playFrom("request")
     }
     
-    func didFinishRecording(type: Commandtype) {
-        var note: String = ""
+    func didFinishRecording(type: Commandtype, info: String) {
+        var note: String = info
         switch type {
         case .pace:
-            note = "Pace saved"
+            note = "Pace saved \(note)"
             Player.playFrom("bpm")
         case .volume:
-            note = "Volume saved"
+            note = "Volume \(info)d"
             Player.playFrom("volume")
         case .next:
             note = "Next called"
         case .prev:
-            note = "previous called"
+            note = "Previous called"
         case .play:
             note = "Play called"
         case .pause:
             note = "Pause called"
         case .stop:
-            note = "Stopn called"
+            note = "Stop called"
         case .none:
-            note = "Command not found"
             Player.playFrom("command")
         }
-        transcribedText.text = "type: \(type)   message: \(note)"
+        transcribedText.text = "\n\nType: \(type)\n\nMessage: \(note)"
     }
 }
