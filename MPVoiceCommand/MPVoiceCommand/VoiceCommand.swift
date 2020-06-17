@@ -218,13 +218,13 @@ extension SpeechRecog {
     func checkStatus(status: SpeechStatus) {
         switch status {
         case .ready:
-            print("*************************")
             self.prepareRecording()
+            print("*************************")
         case .recognizing:
             self.checkCommand(self.message)
         case .unavailable:
-            print("*************************")
             self.cancelRecording()
+            print("*************************")
         }
     }
     
